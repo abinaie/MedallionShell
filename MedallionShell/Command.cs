@@ -457,6 +457,14 @@ namespace Medallion.Shell
         {
             return Shell.Default.Run(executable, arguments);
         }
+
+        /// <summary>
+        /// A convenience method for calling <see cref="Shell.RunWithShellExecute(string, IEnumerable{object})"/>
+        /// </summary>
+        public static Command RunWithShellExecute(string executable, IEnumerable<object>? arguments = null)
+        {
+            return Shell.Default.Run(executable, arguments, options => options.UseShellExecute(true));
+        }
         #endregion
 
         // NOTE: we used to also override true, false, ! and & to support boolean conditions as in bash. The problem with

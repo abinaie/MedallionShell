@@ -74,6 +74,15 @@ namespace Medallion.Shell
         }
 
         /// <summary>
+        /// Specifies a function which can modify the UseShellExecute
+        /// </summary>
+        public Options UseShellExecute(bool value)
+        {
+            this.StartInfo(psi => psi.UseShellExecute = value);
+            return this;
+        }
+
+        /// <summary>
         /// Tries to attach to an already running process, given its <paramref name="processId"/>,
         /// giving <paramref name="attachedCommand" /> representing the process and returning
         /// true if this succeeded, otherwise false.
